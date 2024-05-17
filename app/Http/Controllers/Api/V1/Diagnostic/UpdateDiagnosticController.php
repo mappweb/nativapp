@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DiagnosticRequest;
 use App\Http\Resources\Api\DiagnosticResource;
 use Core\BoundedContext\Diagnostic\Application\UpdateUseCase;
-use Core\BoundedContext\Diagnostic\Domain\Diagnostic;
 use Core\BoundedContext\Diagnostic\Infrastructure\EloquentDiagnosticRepository;
 use Illuminate\Http\JsonResponse;
 

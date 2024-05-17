@@ -23,8 +23,8 @@ class PatientRequest extends FormRequest
     {
         return [
             'document' => 'required|integer',
-            'firstName' => 'required|string',
-            'lastName' => 'required|string',
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
             'birthday' => 'required|date:Y-m-d',
             'email' => 'required|email:rfc,dns',
             'phone' => 'required|integer',
