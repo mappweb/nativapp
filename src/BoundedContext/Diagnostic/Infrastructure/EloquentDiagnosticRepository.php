@@ -39,7 +39,7 @@ class EloquentDiagnosticRepository implements DiagnosticRepository
                 'description' => $diagnostic->description()->value(),
             ]);
 
-        $id = new UserIdVO($diagnostic->id);
+        $id = new DiagnosticIdVO($diagnostic->id);
         $name = new StringVO($diagnostic->name);
         $description = new StringVO($diagnostic->description);
 

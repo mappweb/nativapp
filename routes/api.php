@@ -7,6 +7,10 @@ use App\Http\Controllers\Api\V1\Diagnostic\CreateDiagnosticController;
 use App\Http\Controllers\Api\V1\Diagnostic\DestroyDiagnosticController;
 use App\Http\Controllers\Api\V1\Diagnostic\PaginateDiagnosticController;
 use App\Http\Controllers\Api\V1\Diagnostic\UpdateDiagnosticController;
+use App\Http\Controllers\Api\V1\Patient\CreatePatientController;
+use App\Http\Controllers\Api\V1\Patient\DestroyPatientController;
+use App\Http\Controllers\Api\V1\Patient\PaginatePatientController;
+use App\Http\Controllers\Api\V1\Patient\UpdatePatientController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
@@ -31,8 +35,13 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(callback: function (Route
 
     //Diagnostics
     $router->get('diagnostics', PaginateDiagnosticController::class);
-   // $router->get('diagnostics/{challenge}', ShowChallengeController::class);
     $router->post('diagnostics', CreateDiagnosticController::class);
     $router->put('diagnostics/{diagnostic}', UpdateDiagnosticController::class);
     $router->delete('diagnostics/{diagnostic}', DestroyDiagnosticController::class);
+
+    //Patients
+    $router->get('patients', PaginatePatientController::class);
+    $router->post('patients', CreatePatientController::class);
+    $router->put('patients/{patient}', UpdatePatientController::class);
+    $router->delete('patients/{patient}', DestroyPatientController::class);
 });

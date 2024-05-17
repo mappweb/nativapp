@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use DomainException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Throwable;
@@ -48,6 +49,14 @@ class Handler extends ExceptionHandler
                 return response()->json([
                     'message' => $e->getMessage()
                 ], 404);
+            }
+        });
+        $this->renderable(function (ValidationException $e, $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'message' => 'Validation Error',
+                    'errors' => $e->errors(),
+                ], $e->status);
             }
         });
     }
