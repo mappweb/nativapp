@@ -42,4 +42,12 @@ interface PatientRepository
      * @return void
      */
     public function attachDiagnostic(PatientIdVO $patientId, DiagnosticIdVO $diagnosticId, ?StringVO $observation= null): void;
+
+    /**
+     * @param StringVO|null $document
+     * @param StringVO|null $firstName
+     * @param StringVO|null $lastName
+     * @return mixed
+     */
+    public function search(?StringVO $document, ?StringVO $firstName, ?StringVO $lastName): Patient;
 }

@@ -11,6 +11,7 @@ use Core\BoundedContext\Patient\Domain\ValueObjects\PatientContact;
 use Core\BoundedContext\Patient\Domain\ValueObjects\PatientIdVO;
 use Core\BoundedContext\Patient\Domain\ValueObjects\PatientName;
 use Core\BoundedContext\Patient\Domain\ValueObjects\StringVO;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @property \App\Models\User $eloquentUserModel
@@ -165,5 +166,38 @@ class EloquentDiagnosticRepository implements PatientRepository
                 'created_at' => now()
             ]
         );
+    }
+
+    /**
+     * @param StringVO|null $document
+     * @param StringVO|null $firstName
+     * @param StringVO|null $lastName
+     * @return mixed
+     */
+    public function search(?StringVO $document, ?StringVO $firstName, ?StringVO $lastName): Patient
+    {
+        /**
+         * @var EloquentModel $patient
+         */
+        $patient = $this->eloquentModel->query()
+            ->where('document', '=', optional($document)->value())
+            ->orWhere(DB::raw('LOWER(first_name)'), '=', optional($firstName)->value())
+            ->orWhere(DB::raw('LOWER(last_name)'), '=', optional($lastName)->value())
+            ->firstOrFail();
+
+        $id = new PatientIdVO($patient->id);
+        $document = new StringVO($patient->document);
+        $name = new PatientName(
+            new StringVO($patient->first_name),
+            new StringVO($patient->last_name),
+        );
+        $birthday = new StringVO($patient->birthday);
+        $contact = new PatientContact(
+            new StringVO($patient->email),
+            new StringVO($patient->phone),
+        );
+        $genre = new StringVO($patient->genre);
+
+        return Patient::create($id, $document, $name, $birthday, $contact, $genre);
     }
 }

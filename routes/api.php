@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\V1\Patient\CreatePatientController;
 use App\Http\Controllers\Api\V1\Patient\DestroyPatientController;
 use App\Http\Controllers\Api\V1\Patient\PaginatePatientController;
 use App\Http\Controllers\Api\V1\Patient\PatientAttachDiagnosticController;
+use App\Http\Controllers\Api\V1\Patient\PatientSearchController;
 use App\Http\Controllers\Api\V1\Patient\UpdatePatientController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -46,4 +47,5 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(callback: function (Route
     $router->put('patients/{patient}', UpdatePatientController::class);
     $router->delete('patients/{patient}', DestroyPatientController::class);
     $router->post('patients/{patient}/attach-diagnostic/{diagnostic}', PatientAttachDiagnosticController::class);
+    $router->get('patients/search', PatientSearchController::class);
 });
