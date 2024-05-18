@@ -22,6 +22,7 @@ class PatientPaginateResource extends JsonResource
             'email' => $this->email,
             'phone' => $this->phone,
             'genre' => $this->genre,
+            'diagnostics' => DiagnosticPaginateResource::collection($this->diagnostics),
         ];
     }
 }

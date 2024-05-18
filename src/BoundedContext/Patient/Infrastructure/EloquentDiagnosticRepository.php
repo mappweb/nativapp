@@ -3,6 +3,7 @@
 namespace Core\BoundedContext\Patient\Infrastructure;
 
 use App\Models\Patient as EloquentModel;
+use Core\BoundedContext\Diagnostic\Domain\ValueObjects\DiagnosticIdVO;
 use Core\BoundedContext\Patient\Domain\Contracts\PatientRepository;
 use Core\BoundedContext\Patient\Domain\Patient;
 use Core\BoundedContext\Patient\Domain\ValueObjects\IntegerVO;
@@ -141,5 +142,28 @@ class EloquentDiagnosticRepository implements PatientRepository
                 'page',
                 $page->value() ?? 1,
             );
+    }
+
+    /**
+     * @param PatientIdVO $patientId
+     * @param DiagnosticIdVO $diagnosticId
+     * @param StringVO|null $observation
+     * @return void
+     */
+    public function attachDiagnostic(PatientIdVO $patientId, DiagnosticIdVO $diagnosticId, ?StringVO $observation = null): void
+    {
+        /**
+         * @var EloquentModel $patient
+         */
+        $patient = $this->eloquentModel->query()
+            ->findOrFail($patientId->value());
+
+        $patient->diagnostics()->attach(
+            $diagnosticId->value(),
+            [
+                'observation' => optional($observation)->value(),
+                'created_at' => now()
+            ]
+        );
     }
 }

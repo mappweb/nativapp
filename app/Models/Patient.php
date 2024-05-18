@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Patient extends Model
 {
@@ -33,4 +34,12 @@ class Patient extends Model
     protected $casts = [
         'birthday' => 'date',
     ];
+
+    /**
+     * @return BelongsToMany
+     */
+    public function diagnostics(): BelongsToMany
+    {
+        return $this->belongsToMany(Diagnostic::class);
+    }
 }

@@ -2,9 +2,11 @@
 
 namespace Core\BoundedContext\Patient\Domain\Contracts;
 
+use Core\BoundedContext\Diagnostic\Domain\ValueObjects\DiagnosticIdVO;
 use Core\BoundedContext\Patient\Domain\ValueObjects\IntegerVO;
 use Core\BoundedContext\Patient\Domain\Patient;
 use Core\BoundedContext\Patient\Domain\ValueObjects\PatientIdVO;
+use Core\BoundedContext\Patient\Domain\ValueObjects\StringVO;
 
 interface PatientRepository
 {
@@ -32,4 +34,12 @@ interface PatientRepository
      * @return mixed
      */
     public function paginate(?IntegerVO $perPage, ?IntegerVO $page): mixed;
+
+    /**
+     * @param PatientIdVO $patientId
+     * @param DiagnosticIdVO $diagnosticId
+     * @param StringVO|null $observation
+     * @return void
+     */
+    public function attachDiagnostic(PatientIdVO $patientId, DiagnosticIdVO $diagnosticId, ?StringVO $observation= null): void;
 }
