@@ -11,6 +11,7 @@ class Diagnostic extends Model
 {
     use HasFactory;
     use HasUuids;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
