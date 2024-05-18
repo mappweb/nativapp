@@ -1,0 +1,1637 @@
+{
+	"info": {
+		"_postman_id": "e7880edc-ca1d-4803-902e-5401b2c8bc50",
+		"name": "Nativapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27227408"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Diego\",\n    \"lastName\": \"Toscano\",\n    \"email\": \"diego.toscanof@nativapp.com\",\n    \"password\": \"12345678\",\n    \"passwordConfirmation\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Diego\",\n    \"lastName\": \"Toscano\",\n    \"email\": \"diego.toscanof@example.com\",\n    \"password\": \"12345678\",\n    \"passwordConfirmation\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/register",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 18:43:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"id\": \"9c1112a8-2f7e-4c99-a14b-3e5c92d03642\",\n        \"email\": \"diego.toscanof@example.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/logout",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 20:58:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Successfully logged out\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"uhammes@example.net\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						},
+						"description": "Iniciar sesión."
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"diego.toscanof@gmail.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 20:55:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"uhammes@example.net\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 18:36:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"id\": \"9c0fd97e-0f1c-4e31-9a61-015f2ec055c1\",\n        \"email\": \"uhammes@example.net\"\n    },\n    \"authorization\": {\n        \"token\": \"9|xnYhBQTxmcsgZKbXqGs55zUKXGDPyWYotIK7TDBYf9d95bdb\",\n        \"type\": \"bearer\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Diagnostics",
+			"item": [
+				{
+					"name": "paginate diagnostics",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"perPage\": \"10\",\n    \"page\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/diagnostics",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"diagnostics"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "paginate diagnostics",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"perPage\": \"10\",\n    \"page\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/diagnostics",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"diagnostics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 20:35:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Challenges lists successfully\",\n    \"data\": {\n        \"firstItem\": 1,\n        \"lastItem\": 1,\n        \"perPage\": 10,\n        \"currentPage\": 1,\n        \"lastPage\": 1,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"id\": \"9c1134eb-6a8d-4c35-8317-57db6c862263\",\n                \"name\": \"Buenas salud - 1\",\n                \"description\": \"Buenas salud - 1\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create diagnostic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Buenas salud\",\n    \"description\": \"Buenas salud\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/diagnostics",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"diagnostics"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create diagnostic",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Buenas salud\",\n    \"description\": \"Buenas salud\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/diagnostics",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"diagnostics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 18:40:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Diagnostic created successfully\",\n    \"data\": {\n        \"id\": \"9c1111a4-79fb-4ac8-bf4f-87fbab2463b7\",\n        \"name\": \"Buenas salud\",\n        \"description\": \"Buenas salud\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "edit diagnostic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Buenas salud - 1\",\n    \"description\": \"Buenas salud - 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/diagnostics/9c1111a4-79fb-4ac8-bf4f-87fbab2463b7",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"diagnostics",
+								"9c1111a4-79fb-4ac8-bf4f-87fbab2463b7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "edit diagnostic",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Buenas salud - 1\",\n    \"description\": \"Buenas salud - 1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/diagnostics/9c1111a4-79fb-4ac8-bf4f-87fbab2463b7",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"diagnostics",
+										"9c1111a4-79fb-4ac8-bf4f-87fbab2463b7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 19:54:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Challenge created successfully\",\n    \"data\": {\n        \"id\": \"9c1111a4-79fb-4ac8-bf4f-87fbab2463b7\",\n        \"name\": \"Buenas salud - 1\",\n        \"description\": \"Buenas salud - 1\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "destroy diagnostic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/diagnostics/9c1134eb-6a8d-4c35-8317-57db6c862263",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"diagnostics",
+								"9c1134eb-6a8d-4c35-8317-57db6c862263"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "destroy diagnostic",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/diagnostics/9c1134eb-6a8d-4c35-8317-57db6c862263",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"diagnostics",
+										"9c1134eb-6a8d-4c35-8317-57db6c862263"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 20:36:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Diagnostic deleted successfully\",\n    \"data\": {\n        \"id\": \"9c1134eb-6a8d-4c35-8317-57db6c862263\",\n        \"name\": \"Buenas salud - 1\",\n        \"description\": \"Buenas salud - 1\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "paginate patients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"perPage\": \"10\",\n    \"page\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/patients",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "paginate patients",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"perPage\": \"10\",\n    \"page\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/patients",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"patients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 23:24:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Diagnostics lists successfully\",\n    \"data\": {\n        \"firstItem\": 1,\n        \"lastItem\": 1,\n        \"perPage\": 10,\n        \"currentPage\": 1,\n        \"lastPage\": 1,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"id\": \"9c1174d7-e25a-46e5-bd47-737185273809\",\n                \"firstName\": \"Diego\",\n                \"lastName\": \"Toscano\",\n                \"birthday\": \"1990-06-11T00:00:00.000000Z\",\n                \"email\": \"diego.toscanof@gmail.com\",\n                \"phone\": \"3205375297\",\n                \"genre\": \"Male\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "paginate patients with diagnostics",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"perPage\": \"10\",\n    \"page\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/patients",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"patients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 May 2024 01:38:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Patients lists successfully\",\n    \"data\": {\n        \"firstItem\": 1,\n        \"lastItem\": 1,\n        \"perPage\": 10,\n        \"currentPage\": 1,\n        \"lastPage\": 1,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"id\": \"9c11887e-e7e3-4b4f-a757-d36059a4e236\",\n                \"firstName\": \"Diego\",\n                \"lastName\": \"Toscano\",\n                \"birthday\": \"1990-06-11T00:00:00.000000Z\",\n                \"email\": \"diego.toscanof@gmail.com\",\n                \"phone\": \"3205375297\",\n                \"genre\": \"Male\",\n                \"diagnostics\": [\n                    {\n                        \"id\": \"9c114099-6f13-4cf7-ac9f-a2d74d15b27e\",\n                        \"name\": \"Buenas salud\",\n                        \"description\": \"Buenas salud\"\n                    },\n                    {\n                        \"id\": \"9c114099-6f13-4cf7-ac9f-a2d74d15b27e\",\n                        \"name\": \"Buenas salud\",\n                        \"description\": \"Buenas salud\"\n                    }\n                ]\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "search patients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/patients/search?document=1102833607&firstName=Diego&lastName=Toscano",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								"search"
+							],
+							"query": [
+								{
+									"key": "document",
+									"value": "1102833607"
+								},
+								{
+									"key": "firstName",
+									"value": "Diego"
+								},
+								{
+									"key": "lastName",
+									"value": "Toscano"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "paginate patients",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"perPage\": \"10\",\n    \"page\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/patients",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"patients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 23:24:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Diagnostics lists successfully\",\n    \"data\": {\n        \"firstItem\": 1,\n        \"lastItem\": 1,\n        \"perPage\": 10,\n        \"currentPage\": 1,\n        \"lastPage\": 1,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"id\": \"9c1174d7-e25a-46e5-bd47-737185273809\",\n                \"firstName\": \"Diego\",\n                \"lastName\": \"Toscano\",\n                \"birthday\": \"1990-06-11T00:00:00.000000Z\",\n                \"email\": \"diego.toscanof@gmail.com\",\n                \"phone\": \"3205375297\",\n                \"genre\": \"Male\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "paginate patients with diagnostics",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"perPage\": \"10\",\n    \"page\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/patients",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"patients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 May 2024 01:38:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Patients lists successfully\",\n    \"data\": {\n        \"firstItem\": 1,\n        \"lastItem\": 1,\n        \"perPage\": 10,\n        \"currentPage\": 1,\n        \"lastPage\": 1,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"id\": \"9c11887e-e7e3-4b4f-a757-d36059a4e236\",\n                \"firstName\": \"Diego\",\n                \"lastName\": \"Toscano\",\n                \"birthday\": \"1990-06-11T00:00:00.000000Z\",\n                \"email\": \"diego.toscanof@gmail.com\",\n                \"phone\": \"3205375297\",\n                \"genre\": \"Male\",\n                \"diagnostics\": [\n                    {\n                        \"id\": \"9c114099-6f13-4cf7-ac9f-a2d74d15b27e\",\n                        \"name\": \"Buenas salud\",\n                        \"description\": \"Buenas salud\"\n                    },\n                    {\n                        \"id\": \"9c114099-6f13-4cf7-ac9f-a2d74d15b27e\",\n                        \"name\": \"Buenas salud\",\n                        \"description\": \"Buenas salud\"\n                    }\n                ]\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"document\": \"1102833607\",\n    \"firstName\": \"Diego\",\n    \"lastName\": \"Toscano\",\n    \"birthday\": \"1990-06-11\",\n    \"email\": \"diego.toscanof@gmail.com\",\n    \"phone\": \"3205375297\",\n    \"genre\": \"Male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/patients",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create diagnostic",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"document\": \"1102833607\",\n    \"firstName\": \"Diego\",\n    \"lastName\": \"Toscano\",\n    \"birthday\": \"1990-06-11\",\n    \"email\": \"diego.toscanof@gmail.com\",\n    \"phone\": \"3205375297\",\n    \"genre\": \"Male\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/patients",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"patients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 23:19:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Diagnostic created successfully\",\n    \"data\": {\n        \"id\": \"9c1174d7-e25a-46e5-bd47-737185273809\",\n        \"document\": \"1102833607\",\n        \"firstName\": \"Diego\",\n        \"lastName\": \"Toscano\",\n        \"birthday\": \"1990-06-11 00:00:00\",\n        \"email\": \"diego.toscanof@gmail.com\",\n        \"phone\": \"3205375297\",\n        \"genre\": \"Male\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "patient attach diagnostic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"observation\": \"Hábitos saludables\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/patients/9c11887e-e7e3-4b4f-a757-d36059a4e236/attach-diagnostic/9c114099-6f13-4cf7-ac9f-a2d74d15b27e",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								"9c11887e-e7e3-4b4f-a757-d36059a4e236",
+								"attach-diagnostic",
+								"9c114099-6f13-4cf7-ac9f-a2d74d15b27e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "patient attach diagnostic",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"observation\": \"Hábitos saludables\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/patients/9c11887e-e7e3-4b4f-a757-d36059a4e236/attach-diagnostic/9c114099-6f13-4cf7-ac9f-a2d74d15b27e",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"patients",
+										"9c11887e-e7e3-4b4f-a757-d36059a4e236",
+										"attach-diagnostic",
+										"9c114099-6f13-4cf7-ac9f-a2d74d15b27e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 May 2024 01:37:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Diagnostic attach successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "edit patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"document\": \"1102833607\",\n    \"firstName\": \"Diego\",\n    \"lastName\": \"Toscano\",\n    \"birthday\": \"1990-06-11\",\n    \"email\": \"diego.toscanof@gmail.com\",\n    \"phone\": \"3205375297\",\n    \"genre\": \"Male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/patients/9c1174d7-e25a-46e5-bd47-737185273809",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								"9c1174d7-e25a-46e5-bd47-737185273809"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "edit patient",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"document\": \"1102833607\",\n    \"firstName\": \"Diego\",\n    \"lastName\": \"Toscano\",\n    \"birthday\": \"1990-06-11\",\n    \"email\": \"diego.toscanof@gmail.com\",\n    \"phone\": \"3205375297\",\n    \"genre\": \"Male\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/patients/9c1174d7-e25a-46e5-bd47-737185273809",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"patients",
+										"9c1174d7-e25a-46e5-bd47-737185273809"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 23:28:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Patient created successfully\",\n    \"data\": {\n        \"id\": \"9c1174d7-e25a-46e5-bd47-737185273809\",\n        \"document\": \"1102833607\",\n        \"firstName\": \"Diego\",\n        \"lastName\": \"Toscano\",\n        \"birthday\": \"1990-06-11 00:00:00\",\n        \"email\": \"diego.toscanof@gmail.com\",\n        \"phone\": \"3205375297\",\n        \"genre\": \"Male\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "destroy patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/patients/9c117966-5b72-4fb8-b3e0-12424586c6fa",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								"9c117966-5b72-4fb8-b3e0-12424586c6fa"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "destroy diagnostic",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/patients/9c117966-5b72-4fb8-b3e0-12424586c6fa",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"patients",
+										"9c117966-5b72-4fb8-b3e0-12424586c6fa"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "0.0.0.0:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.19"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 May 2024 23:31:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Patient deleted successfully\",\n    \"data\": {\n        \"id\": \"9c117966-5b72-4fb8-b3e0-12424586c6fa\",\n        \"document\": \"1102833607\",\n        \"firstName\": \"Diego\",\n        \"lastName\": \"Toscano\",\n        \"birthday\": \"1990-06-11 00:00:00\",\n        \"email\": \"diego.toscanof@gmail.com\",\n        \"phone\": \"3205375297\",\n        \"genre\": \"Male\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
